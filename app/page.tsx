@@ -25,11 +25,11 @@ export default function Home() {
       <nav className="nav-blur fixed top-0 right-0 left-0 z-50 border-b border-[var(--border)]">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
           <Image
-            src="/wordmark-beige.png"
+            src="/logo-brand-light.png"
             alt="Aliester"
-            width={172}
-            height={36}
-            className="h-8 w-auto sm:h-9"
+            width={40}
+            height={40}
+            className="h-10 w-10"
             priority
           />
           <a
@@ -554,13 +554,13 @@ export default function Home() {
           <div className="grid gap-12 md:grid-cols-12">
             {/* Brand */}
             <div className="md:col-span-5">
-              <div className="inline-flex items-center rounded-lg bg-[#f4f1ef] px-4 py-2.5">
+              <div className="inline-flex items-center rounded-lg px-1 py-1">
                 <Image
-                  src="/logo-brand-dark.png"
+                  src="/logo-brand-light.png"
                   alt="Aliester"
-                  width={120}
-                  height={40}
-                  className="h-8 w-auto"
+                  width={56}
+                  height={56}
+                  className="h-12 w-12"
                 />
               </div>
               <p className="mt-3 max-w-xs text-sm leading-relaxed text-[var(--fg-dim)]">
