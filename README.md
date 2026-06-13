@@ -1,36 +1,71 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Aliester Landing
 
-## Getting Started
+Landing page oficial de **Aliester**, pensada para presentar el producto durante el hackathon con una estética **product-tech premium** y una narrativa enfocada en claridad, atención y organización personal.
 
-First, run the development server:
+## Qué comunica esta landing
+
+- **Aliester** como centro de operaciones personal
+- el **asistente** como principal diferenciador
+- módulos integrados para finanzas, tareas, calendario, notas y suscripciones
+- screenshots reales del producto para demostrar que ya existe una base funcional
+
+## Stack
+
+- **Next.js**
+- **TypeScript**
+- **Tailwind CSS**
+- **lucide-react**
+
+## Correr localmente
+
+```bash
+npm install
+npm run dev
+```
+
+Abrir en:
+
+```text
+http://localhost:3000
+```
+
+## Scripts útiles
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm run build
+npm run lint
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Estructura relevante
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```text
+app/
+  globals.css   -> sistema visual y estilos globales
+  layout.tsx    -> layout base y metadata
+  page.tsx      -> composición completa de la landing
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+public/screenshots/
+  -> capturas reales del producto usadas en la página
+```
 
-## Learn More
+## Dirección visual
 
-To learn more about Next.js, take a look at the following resources:
+- negro cálido: `#201f1d`
+- beige claro: `#efebea`
+- acento cálido restringido para resaltar CTAs, badges y puntos clave
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+La intención es que la landing se sienta moderna, sobria y premium, alineada con la identidad visual de la app principal.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Estado actual
 
-## Deploy on Vercel
+- hero orientado a claridad y atención priorizada
+- sección del asistente como hook principal del producto
+- screenshots reales integrados
+- composición pensada para demo/pitch de hackathon
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Pendiente / siguiente paso
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- conectar CTAs a URLs reales
+- pulir copy final para pitch/demo
+- preparar deployment público si se necesita mostrar fuera del entorno local
