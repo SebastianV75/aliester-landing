@@ -24,9 +24,14 @@ export default function Home() {
       {/* ─── Navigation ─── */}
       <nav className="nav-blur fixed top-0 right-0 left-0 z-50 border-b border-[var(--border)]">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-          <span className="text-lg font-bold tracking-tight text-[var(--fg)]">
-            Aliester
-          </span>
+          <Image
+            src="/logo-light.png"
+            alt="Aliester"
+            width={36}
+            height={36}
+            className="h-9 w-auto"
+            priority
+          />
           <a
             href="#cta"
             className="inline-flex items-center gap-2 rounded-md bg-[var(--fg)] px-4 py-2 text-sm font-semibold text-[var(--bg)] transition-all hover:bg-white hover:shadow-[0_4px_24px_rgba(239,235,234,0.12)]"
@@ -549,8 +554,14 @@ export default function Home() {
           <div className="grid gap-12 md:grid-cols-12">
             {/* Brand */}
             <div className="md:col-span-5">
-              <div className="text-2xl font-bold tracking-tight text-[var(--fg)]">
-                Aliester
+              <div className="inline-flex items-center rounded-lg bg-[#f4f1ef] px-4 py-2.5">
+                <Image
+                  src="/logo-dark.png"
+                  alt="Aliester"
+                  width={120}
+                  height={32}
+                  className="h-7 w-auto"
+                />
               </div>
               <p className="mt-3 max-w-xs text-sm leading-relaxed text-[var(--fg-dim)]">
                 Tu centro de operaciones personal. Claridad sobre caos.
