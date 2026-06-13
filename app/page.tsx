@@ -25,11 +25,11 @@ export default function Home() {
       <nav className="nav-blur fixed top-0 right-0 left-0 z-50 border-b border-[var(--border)]">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
           <Image
-            src="/logo-light.png"
+            src="/wordmark-beige.png"
             alt="Aliester"
-            width={36}
+            width={172}
             height={36}
-            className="h-9 w-auto"
+            className="h-8 w-auto sm:h-9"
             priority
           />
           <a
@@ -556,11 +556,11 @@ export default function Home() {
             <div className="md:col-span-5">
               <div className="inline-flex items-center rounded-lg bg-[#f4f1ef] px-4 py-2.5">
                 <Image
-                  src="/logo-dark.png"
+                  src="/logo-brand-dark.png"
                   alt="Aliester"
                   width={120}
-                  height={32}
-                  className="h-7 w-auto"
+                  height={40}
+                  className="h-8 w-auto"
                 />
               </div>
               <p className="mt-3 max-w-xs text-sm leading-relaxed text-[var(--fg-dim)]">
