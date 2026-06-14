@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(//home/amy/.volta/**)",
+      "Bash(command -v corepack)",
+      "Read(//home/amy/**)"
+    ]
+  }
+}

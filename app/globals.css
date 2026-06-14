@@ -227,3 +227,175 @@ body {
     margin-left: 0;
   }
 }
+
+/* ─────────────────────────────────────────────
+   Premium motion layer — aditivo, sin cambiar
+   colores ni estructura. Seguro sin JS y con
+   prefers-reduced-motion.
+   ───────────────────────────────────────────── */
+
+/* Scroll suave + offset para el nav fijo */
+html {
+  scroll-behavior: smooth;
+}
+section[id] {
+  scroll-margin-top: 5.5rem;
+}
+
+/* Entrada del hero — corre al cargar, sin depender de JS */
+@keyframes rise-in {
+  from { opacity: 0; transform: translateY(22px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.rise {
+  opacity: 0;
+  animation: rise-in 0.9s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+.rise-1 { animation-delay: 0.05s; }
+.rise-2 { animation-delay: 0.15s; }
+.rise-3 { animation-delay: 0.27s; }
+.rise-4 { animation-delay: 0.40s; }
+.rise-5 { animation-delay: 0.54s; }
+.rise-6 { animation-delay: 0.70s; }
+
+/* Reveal al hacer scroll — sólo se oculta cuando JS marca
+   el documento como listo, así nada queda invisible sin JS */
+.reveal-ready [data-reveal],
+.reveal-ready [data-reveal-group] > * {
+  opacity: 0;
+  transform: translateY(26px);
+  transition:
+    opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.reveal-ready [data-reveal].is-visible,
+.reveal-ready [data-reveal-group].is-visible > * {
+  opacity: 1;
+  transform: none;
+}
+
+/* Stagger de los hijos dentro de un grupo revelado */
+.reveal-ready [data-reveal-group].is-visible > *:nth-child(2) { transition-delay: 70ms; }
+.reveal-ready [data-reveal-group].is-visible > *:nth-child(3) { transition-delay: 140ms; }
+.reveal-ready [data-reveal-group].is-visible > *:nth-child(4) { transition-delay: 210ms; }
+.reveal-ready [data-reveal-group].is-visible > *:nth-child(5) { transition-delay: 280ms; }
+.reveal-ready [data-reveal-group].is-visible > *:nth-child(6) { transition-delay: 350ms; }
+.reveal-ready [data-reveal-group].is-visible > *:nth-child(7) { transition-delay: 420ms; }
+
+/* Card: ligera elevación táctil en hover */
+.card-surface {
+  transition:
+    border-color 0.25s ease,
+    background 0.25s ease,
+    transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.card-surface:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 44px -12px rgba(0, 0, 0, 0.28);
+}
+
+/* Media zoom — las capturas cobran vida al pasar el cursor */
+.media-zoom {
+  overflow: hidden;
+}
+.media-zoom img {
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform;
+}
+.media-zoom:hover img,
+.group:hover .media-zoom img {
+  transform: scale(1.04);
+}
+
+/* Texto degradado — shimmer lento y vivo */
+@keyframes text-shimmer {
+  0%, 100% { background-position: 0% center; }
+  50%      { background-position: 100% center; }
+}
+
+/* Accent glow — respiración cálida muy sutil */
+@keyframes glow-breathe {
+  0%, 100% {
+    box-shadow: 0 0 40px rgba(212, 165, 116, 0.08), 0 0 80px rgba(212, 165, 116, 0.04);
+  }
+  50% {
+    box-shadow: 0 0 56px rgba(212, 165, 116, 0.13), 0 0 112px rgba(212, 165, 116, 0.06);
+  }
+}
+
+/* Animaciones infinitas sólo de tablet hacia arriba: en móvil queda el
+   brillo estático (más fluido y sin gastar batería). El degradado y el
+   glow base siguen presentes en pantallas chicas. */
+@media (min-width: 768px) {
+  .gradient-text {
+    background-size: 200% auto;
+    animation: text-shimmer 6s ease-in-out infinite;
+  }
+  .accent-glow {
+    animation: glow-breathe 7s ease-in-out infinite;
+  }
+}
+
+/* Botón primario — barrido de luz al hover */
+.btn-primary {
+  position: relative;
+  overflow: hidden;
+}
+.btn-primary::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -130%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(
+    100deg,
+    transparent,
+    rgba(255, 255, 255, 0.55),
+    transparent
+  );
+  transform: skewX(-18deg);
+  transition: left 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+  pointer-events: none;
+}
+.btn-primary:hover::after {
+  left: 150%;
+}
+
+/* Nav: se eleva al separarse del top */
+.nav-blur {
+  transition: background 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+.nav-blur.scrolled {
+  background: rgba(32, 31, 29, 0.92);
+  box-shadow: 0 12px 32px -14px rgba(0, 0, 0, 0.55);
+}
+
+/* Respeto total a quien prefiere menos movimiento */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .rise { opacity: 1; animation: none; }
+  .reveal-ready [data-reveal],
+  .reveal-ready [data-reveal-group] > * {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  .gradient-text,
+  .accent-glow,
+  .scroll-indicator {
+    animation: none;
+  }
+  .card-surface:hover {
+    transform: none;
+  }
+  .media-zoom:hover img,
+  .group:hover .media-zoom img {
+    transform: none;
+  }
+  .btn-primary::after { display: none; }
+}

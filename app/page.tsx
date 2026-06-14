@@ -17,12 +17,14 @@ import {
   ChevronDown,
 } from "lucide-react";
 import Image from "next/image";
+import ScrollReveal from "./ScrollReveal";
 
 export default function Home() {
   return (
     <main className="flex flex-col">
+      <ScrollReveal />
       {/* ─── Navigation ─── */}
-      <nav className="nav-blur fixed top-0 right-0 left-0 z-50 border-b border-[var(--border)]">
+      <nav id="site-nav" className="nav-blur fixed top-0 right-0 left-0 z-50 border-b border-[var(--border)]">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
           <Image
             src="/logo-brand-light.png"
@@ -33,7 +35,7 @@ export default function Home() {
             priority
           />
           <a
-            href="#cta"
+            href="https://main.d95f5sve6wacj.amplifyapp.com/#/cuentas"
             className="inline-flex items-center gap-2 rounded-md bg-[var(--fg)] px-4 py-2 text-sm font-semibold text-[var(--bg)] transition-all hover:bg-white hover:shadow-[0_4px_24px_rgba(239,235,234,0.12)]"
           >
             Empezar gratis
@@ -47,23 +49,23 @@ export default function Home() {
         <div className="absolute inset-0 -z-10 grid-pattern" />
         <div className="absolute inset-0 -z-10 warm-glow" />
 
-        <div className="badge badge-accent mb-10">
+        <div className="badge badge-accent mb-10 rise rise-1">
           <Brain className="h-3.5 w-3.5" />
           <span>El corazón de Aliester</span>
         </div>
 
-        <h1 className="max-w-5xl text-5xl leading-[1.08] font-bold tracking-tight sm:text-6xl lg:text-7xl">
+        <h1 className="rise rise-2 max-w-5xl text-5xl leading-[1.08] font-bold tracking-tight sm:text-6xl lg:text-7xl">
           <span className="text-[var(--fg)]">Un asistente que </span>
           <span className="gradient-text">ordena tu atención</span>
           <br />
           <span className="text-[var(--fg-muted)]">antes de que el caos decida por ti</span>
         </h1>
 
-        <p className="mt-8 max-w-2xl text-lg leading-relaxed text-[var(--fg-muted)]">
+        <p className="rise rise-3 mt-8 max-w-2xl text-lg leading-relaxed text-[var(--fg-muted)]">
           Aliester analiza tu contexto completo — tareas, dinero, calendario, notas y suscripciones — y te muestra primero lo que merece atención ahora, lo que sigue después y lo que puede esperar.
         </p>
 
-        <div className="mt-12 flex flex-col gap-4 sm:flex-row">
+        <div className="rise rise-4 mt-12 flex flex-col gap-4 sm:flex-row">
           <a href="#features" className="btn-primary group">
             Conoce más
             <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
@@ -73,7 +75,7 @@ export default function Home() {
           </a>
         </div>
 
-        <div className="mt-16 w-full max-w-5xl lg:mt-20">
+        <div className="rise rise-5 group mt-12 w-full max-w-5xl sm:mt-16 lg:mt-20">
           <div className="screenshot-shell accent-glow overflow-hidden rounded-2xl border border-[var(--border-strong)] bg-[var(--bg-elevated)] p-3 sm:p-4">
             <div className="screenshot-toolbar mb-3 flex items-center justify-between rounded-xl border border-[var(--border)] bg-[var(--bg)] px-4 py-3">
               <div className="text-left">
@@ -82,7 +84,7 @@ export default function Home() {
               </div>
               <div className="badge badge-accent">IA en acción</div>
             </div>
-            <div className="screenshot-frame overflow-hidden rounded-xl border border-[var(--border)] bg-[#f4f1ef]">
+            <div className="screenshot-frame media-zoom overflow-hidden rounded-xl border border-[var(--border)] bg-[#f4f1ef]">
               <Image
                 src="/screenshots/asistente-attention-center.jpeg"
                 alt="Centro de atención del asistente de Aliester mostrando prioridad actual, siguientes acciones y contexto"
@@ -96,7 +98,7 @@ export default function Home() {
         </div>
 
         {/* Stats bar — refined with dividers */}
-        <div className="mt-20 flex flex-wrap items-center justify-center gap-x-8 gap-y-4 sm:gap-x-12">
+        <div className="rise rise-6 mt-14 flex flex-wrap items-center justify-center gap-x-8 gap-y-4 sm:mt-20 sm:gap-x-12">
           {[
             { label: "Módulos", value: "7" },
             { label: "Apps reemplazadas", value: "5+" },
@@ -125,9 +127,9 @@ export default function Home() {
       </section>
 
       {/* ─── AI Assistant — Centerpiece ─── */}
-      <section className="section-border px-6 py-28 lg:py-36">
+      <section className="section-border px-6 py-16 sm:py-24 lg:py-32">
         <div className="mx-auto max-w-6xl">
-          <div className="mx-auto max-w-2xl text-center">
+          <div data-reveal className="mx-auto max-w-2xl text-center">
             <div className="badge badge-accent mb-6">
               <Brain className="h-3.5 w-3.5" />
               <span>Asistente en acción</span>
@@ -142,7 +144,7 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="relative mx-auto mt-16 max-w-3xl lg:mt-20">
+          <div data-reveal className="group relative mx-auto mt-16 max-w-3xl lg:mt-20">
             <div className="accent-glow overflow-hidden rounded-2xl border border-[var(--border-strong)] bg-[var(--bg-elevated)]">
               <div className="flex items-center gap-3 border-b border-[var(--border)] px-6 py-4">
                 <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-[var(--accent-subtle)]">
@@ -163,7 +165,7 @@ export default function Home() {
                   En lugar de prometer una IA abstracta, aquí está el centro de atención real del producto: prioridades, siguientes pasos y contexto en una sola vista.
                 </p>
 
-                <div className="overflow-hidden rounded-xl border border-[var(--border)] bg-[#f4f1ef]">
+                <div className="media-zoom overflow-hidden rounded-xl border border-[var(--border)] bg-[#f4f1ef]">
                   <Image
                     src="/screenshots/asistente-attention-center.jpeg"
                     alt="Centro de atención del asistente de Aliester mostrando prioridad actual, siguientes acciones y contexto"
@@ -181,7 +183,7 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="mx-auto mt-12 flex max-w-3xl flex-wrap justify-center gap-3 lg:mt-14">
+          <div data-reveal-group className="mx-auto mt-12 flex max-w-3xl flex-wrap justify-center gap-3 lg:mt-14">
             {[
               "Analiza tu situación completa",
               "Prioriza por ti",
@@ -201,11 +203,11 @@ export default function Home() {
       </section>
 
       {/* ─── Problem ─── */}
-      <section className="section-border relative px-6 py-28 lg:py-36">
+      <section className="section-border relative px-6 py-16 sm:py-24 lg:py-32">
         <div className="mx-auto max-w-6xl">
           <div className="grid gap-16 lg:grid-cols-12 lg:gap-12">
             {/* Left — sticky heading */}
-            <div className="lg:col-span-5 lg:sticky lg:top-28 lg:self-start">
+            <div data-reveal className="lg:col-span-5 lg:sticky lg:top-28 lg:self-start">
               <div className="badge mb-6">
                 <Target className="h-3.5 w-3.5 text-[var(--accent)]" />
                 <span>El problema</span>
@@ -221,7 +223,7 @@ export default function Home() {
             </div>
 
             {/* Right — aligned cards */}
-            <div className="space-y-3 lg:col-span-7">
+            <div data-reveal-group className="space-y-3 lg:col-span-7">
               {[
                 {
                   icon: Wallet,
@@ -258,7 +260,7 @@ export default function Home() {
           </div>
 
           {/* Callout — gradient border */}
-          <div className="gradient-border mt-16 rounded-2xl bg-[var(--bg-elevated)] p-8 text-center lg:mt-20 lg:p-10">
+          <div data-reveal className="gradient-border mt-16 rounded-2xl bg-[var(--bg-elevated)] p-8 text-center lg:mt-20 lg:p-10">
             <p className="text-xl leading-relaxed text-[var(--fg-muted)] lg:text-2xl">
               El resultado:{" "}
               <span className="font-semibold text-[var(--fg)]">decisiones reactivas</span>,
@@ -270,9 +272,9 @@ export default function Home() {
       </section>
 
       {/* ─── Solution / Features — Bento Grid ─── */}
-      <section id="features" className="section-border px-6 py-28 lg:py-36">
+      <section id="features" className="section-border px-6 py-16 sm:py-24 lg:py-32">
         <div className="mx-auto max-w-6xl">
-          <div className="mx-auto max-w-2xl text-center">
+          <div data-reveal className="mx-auto max-w-2xl text-center">
             <div className="badge badge-accent mb-6">
               <CheckCircle2 className="h-3.5 w-3.5" />
               <span>La solución</span>
@@ -288,7 +290,7 @@ export default function Home() {
           </div>
 
           {/* Bento grid — 2-3-2 rhythm */}
-          <div className="mt-16 grid gap-3 md:grid-cols-3 lg:mt-20">
+          <div data-reveal-group className="mt-16 grid gap-3 md:grid-cols-3 lg:mt-20">
             {/* Row 1: Dashboard (featured, 2 cols) + Finanzas */}
             <div className="card-surface group rounded-xl p-6 md:col-span-2 md:p-8">
               <div className="mb-5 inline-flex h-11 w-11 items-center justify-center rounded-lg bg-[var(--accent-subtle)]">
@@ -298,7 +300,7 @@ export default function Home() {
               <p className="mt-2 max-w-md text-sm leading-relaxed text-[var(--fg-muted)]">
                 Vista panorámica: balance del mes, tareas urgentes, próximos eventos, gasto en suscripciones. Todo de un vistazo.
               </p>
-              <div className="mt-6 overflow-hidden rounded-xl border border-[var(--border)] bg-[#f4f1ef]">
+              <div className="media-zoom mt-6 overflow-hidden rounded-xl border border-[var(--border)] bg-[#f4f1ef]">
                 <Image
                   src="/screenshots/proyectos-kanban.jpeg"
                   alt="Kanban de proyectos y tareas en Aliester"
@@ -376,7 +378,7 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="mt-10 grid gap-4 md:grid-cols-3 lg:mt-12">
+          <div data-reveal-group className="mt-10 grid gap-4 md:grid-cols-3 lg:mt-12">
             {[
               {
                 src: "/screenshots/calendario-month-view.jpeg",
@@ -394,8 +396,8 @@ export default function Home() {
                 title: "Tareas por etapas",
               },
             ].map((shot) => (
-              <div key={shot.src} className="card-surface overflow-hidden rounded-xl">
-                <div className="overflow-hidden border-b border-[var(--border)] bg-[#f4f1ef]">
+              <div key={shot.src} className="card-surface group overflow-hidden rounded-xl">
+                <div className="media-zoom overflow-hidden border-b border-[var(--border)] bg-[#f4f1ef]">
                   <Image
                     src={shot.src}
                     alt={shot.alt}
@@ -414,9 +416,9 @@ export default function Home() {
       </section>
 
       {/* ─── Target Users — Editorial Layout ─── */}
-      <section className="section-border px-6 py-28 lg:py-36">
+      <section className="section-border px-6 py-16 sm:py-24 lg:py-32">
         <div className="mx-auto max-w-6xl">
-          <div className="mx-auto max-w-2xl text-center">
+          <div data-reveal className="mx-auto max-w-2xl text-center">
             <div className="badge mb-6">
               <Users className="h-3.5 w-3.5 text-[var(--accent)]" />
               <span>Para quién es</span>
@@ -429,7 +431,7 @@ export default function Home() {
           </div>
 
           {/* Editorial numbered rows */}
-          <div className="mt-16 space-y-0 lg:mt-20">
+          <div data-reveal-group className="mt-16 space-y-0 lg:mt-20">
             {[
               {
                 number: "01",
@@ -503,13 +505,13 @@ export default function Home() {
       </section>
 
       {/* ─── CTA ─── */}
-      <section id="cta" className="section-border relative px-6 py-28 lg:py-36">
+      <section id="cta" className="section-border relative px-6 py-16 sm:py-24 lg:py-32">
         {/* Subtle radial glow behind card */}
         <div className="absolute inset-0 -z-10 flex items-center justify-center">
           <div className="h-[60%] w-[60%] rounded-full bg-[radial-gradient(ellipse_at_center,rgba(212,165,116,0.06)_0%,transparent_70%)]" />
         </div>
 
-        <div className="mx-auto max-w-4xl">
+        <div data-reveal className="mx-auto max-w-4xl">
           <div className="gradient-border rounded-3xl bg-[var(--bg-elevated)] px-8 py-16 text-center lg:px-16 lg:py-20">
             <h2 className="text-4xl font-bold tracking-tight text-[var(--fg)] sm:text-5xl">
               Deja de reaccionar.
@@ -521,7 +523,10 @@ export default function Home() {
             </p>
 
             <div className="mt-12 flex flex-col gap-4 sm:flex-row sm:justify-center">
-              <a href="#" className="btn-primary group">
+              <a
+                href="https://main.d95f5sve6wacj.amplifyapp.com/#/cuentas"
+                className="btn-primary group"
+              >
                 Empezar gratis
                 <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
               </a>
