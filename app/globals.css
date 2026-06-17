@@ -20,7 +20,6 @@
   --color-accent: var(--accent);
   --color-accent-hover: var(--accent-hover);
   --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
 }
 
 body {
@@ -145,27 +144,6 @@ body {
 
 /* ─── Composition Utilities ─── */
 
-/* Section side label — large decorative number */
-.section-label {
-  position: absolute;
-  left: -4rem;
-  top: 0;
-  font-size: 0.6875rem;
-  font-weight: 600;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: var(--fg-dim);
-  writing-mode: vertical-rl;
-  transform: rotate(180deg);
-  opacity: 0.5;
-}
-
-@media (max-width: 1023px) {
-  .section-label {
-    display: none;
-  }
-}
-
 /* Gradient border effect */
 .gradient-border {
   position: relative;
@@ -216,18 +194,6 @@ body {
   font-variant-numeric: tabular-nums;
 }
 
-/* Stagger offsets for card lists */
-.stagger-1 { margin-left: 0; }
-.stagger-2 { margin-left: 1rem; }
-.stagger-3 { margin-left: 2rem; }
-.stagger-4 { margin-left: 1rem; }
-
-@media (max-width: 639px) {
-  .stagger-1, .stagger-2, .stagger-3, .stagger-4 {
-    margin-left: 0;
-  }
-}
-
 /* ─────────────────────────────────────────────
    Premium motion layer — aditivo, sin cambiar
    colores ni estructura. Seguro sin JS y con
@@ -258,32 +224,6 @@ section[id] {
 .rise-4 { animation-delay: 0.40s; }
 .rise-5 { animation-delay: 0.54s; }
 .rise-6 { animation-delay: 0.70s; }
-
-/* Reveal al hacer scroll — sólo se oculta cuando JS marca
-   el documento como listo, así nada queda invisible sin JS */
-.reveal-ready [data-reveal],
-.reveal-ready [data-reveal-group] > * {
-  opacity: 0;
-  transform: translateY(26px);
-  transition:
-    opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
-    transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-  will-change: opacity, transform;
-}
-
-.reveal-ready [data-reveal].is-visible,
-.reveal-ready [data-reveal-group].is-visible > * {
-  opacity: 1;
-  transform: none;
-}
-
-/* Stagger de los hijos dentro de un grupo revelado */
-.reveal-ready [data-reveal-group].is-visible > *:nth-child(2) { transition-delay: 70ms; }
-.reveal-ready [data-reveal-group].is-visible > *:nth-child(3) { transition-delay: 140ms; }
-.reveal-ready [data-reveal-group].is-visible > *:nth-child(4) { transition-delay: 210ms; }
-.reveal-ready [data-reveal-group].is-visible > *:nth-child(5) { transition-delay: 280ms; }
-.reveal-ready [data-reveal-group].is-visible > *:nth-child(6) { transition-delay: 350ms; }
-.reveal-ready [data-reveal-group].is-visible > *:nth-child(7) { transition-delay: 420ms; }
 
 /* Card: ligera elevación táctil en hover */
 .card-surface {
@@ -366,25 +306,15 @@ section[id] {
   left: 150%;
 }
 
-/* Nav: se eleva al separarse del top */
+/* Nav */
 .nav-blur {
   transition: background 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-}
-.nav-blur.scrolled {
-  background: rgba(32, 31, 29, 0.92);
-  box-shadow: 0 12px 32px -14px rgba(0, 0, 0, 0.55);
 }
 
 /* Respeto total a quien prefiere menos movimiento */
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .rise { opacity: 1; animation: none; }
-  .reveal-ready [data-reveal],
-  .reveal-ready [data-reveal-group] > * {
-    opacity: 1;
-    transform: none;
-    transition: none;
-  }
   .gradient-text,
   .accent-glow,
   .scroll-indicator {
